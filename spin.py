@@ -42,4 +42,4 @@ if __name__ == '__main__':
     try:
         spin()
     except rospy.ROSInterruptException:
-        pass:
+        pass
