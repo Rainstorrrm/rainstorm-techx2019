@@ -1,5 +1,3 @@
-# rainstorm-techx2019
-
 #!/usr/bin/env python
 
 import rospy, time
