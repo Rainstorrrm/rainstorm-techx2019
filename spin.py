@@ -2,23 +2,42 @@
 
 import rospy, time
 from geometry_msgs.msg import Twist
+forward_speed = 1600
+backward_speed = 1440
+stop_time = 0.1
 
-def forward(speed,angle,time):
+def forward_right(time):
     msg = Twist()
-    msg.angular.z = angle
-    msg.linear.x = speed
+    msg.angular.z = 66
+    msg.linear.x = forward_speed
     pub.publish(msg)
     time.sleep(time)
+    msg.angular.z = 90
     return
 
-def backward(speed,angle,time):
+#refresh is for preparing to go backward because the the robocar has to back twice to actually back
+def refresh():
     msg = Twist()
     msg.angular.z = 90
-    msg.linear.x = 
+    msg.linear.x = 1420    
+
+def backward_left(time):
+    msg = Twist()
+    msg.angular.z = 90
+    msg.linear.x = 1420   
+    pub.publish(msg)
+    time.sleep(0.1)
+#now it is actually going back
+    msg.angular.z = 114
+    msg.linear.x = backward_speed
+    pub.publish(msg)
+    time.sleep(time)
+    msg.angular.z = 90
+    return
 
 def spin():
-    step = 0.4
-    step_stop = 1
+    backward_time = 1
+    forward_time = 1
     pub = rospy.Publisher('car/cmd_vel', Twist, queue_size=10)
     rospy.init_node('publisher')
     rate = rospy.Rate(10) # 10hz
@@ -43,7 +62,7 @@ def spin():
         msg.linear.x = 1500
         pub.publish(msg)
         time.sleep(0.1)
-	msg.linear.x = 1420
+	msg.linear.x = 1460
 	pub.publish(msg)
 	time.sleep(1)
 	msg.linear.x = 1500
