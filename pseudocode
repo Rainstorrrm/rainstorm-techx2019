@@ -1,0 +1,33 @@
+Toss the spitball
+    if shot made, the ball would be detected, robo make noise to cele brate
+  
+If not made, use voice detection to wake up the robo, 
+   robo waken up, 
+      start spinning, start detecting for spitball
+ 
+When spitball detected:
+   stop spinning, stop detecting for spitball, approach spitball, activate ultrasonic  
+  
+When the distance of the spitball is smaller than a threshold (using ultrasonic):
+   activate 舵机 
+   close the arm to trap the spitball
+   start spinning again, start looking for owner (which is represented by a colored board)
+ 
+ When owner detected:
+   stop spinning, approach owner
+  
+ When the distance between the robo and the owner is smaller than a threshold 
+ ##not sure how to determine the distance yet##
+    stop approaching, stop detecting for owner, rest for 5 seconds to let the owner to pick up the spitball 
+    
+ After 5 seconds (after the owner picks up the ball, which means that the task is completed):
+    start spinning again, start detecting homebase (which is represented by a colored board)
+ 
+ When homebase is detected:
+    Stop spinning and detecting, approach homebase
+    
+ When the distance between the robo and the homebase is smaller than a threshold
+ ##not sure how to determine the distance yet##
+    stop approaching, rest
+  
+  REPEAT FROM THE TOP
