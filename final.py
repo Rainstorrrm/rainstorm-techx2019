@@ -27,19 +27,35 @@ def get_mask(object):
     lower_green = (33,100,100)
     upper_green=  (83,255,255)
 
-
     mask0 = cv2.inRange(hsv, lower_red1, upper_red1)
     mask1 = cv2.inRange(hsv, lower_red2, upper_red2)
     maskred = mask0 + mask1
     maskgreen= cv2.inRange(hsv, lower_green, upper_green)
     maskblue = cv2.inRange(hsv, lower_blue, upper_blue)
-
     if object == "paperball":
-        return maskred
-    if object == "owner":
-        return maskgreen
-    if object == "homebase":
-        return maskblue
+        mask = maskgreen
+    elif object == "owner":
+        mask = maskred
+    elif object == "homebase" :
+        mask = maskblue
+
+    return mask
+
+
+
+def mask_paperball():
+    mask = maskred
+    return mask
+
+def mask_owner():
+    mask = maskgreen
+    return mask
+
+def mask_homebase():
+    mask = maskblue
+    return mask
+
+
 
 
 pts = deque(maxlen = args["buffer"])
@@ -63,7 +79,7 @@ while True:
     blurred = cv2.GaussianBlur(frame, (11,11), 0)
     hsv = cv2.cvtColor(blurred, cv2.COLOR_BGR2HSV)
 
-    mask = get_mask()
+    mask = get_mask("homebase")
     mask = cv2.erode(mask, None, iterations = 2)
     mask = cv2.dilate(mask, None, iterations  = 2)
 
