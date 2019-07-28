@@ -23,6 +23,7 @@ def main():
 
     print("Starting Measure now! Press CTRL+C to exit")
     try:
+        distance = 0
         while True:
             # Toggle the output every second
             GPIO.output(trig_output_pin, GPIO.HIGH)
@@ -42,7 +43,7 @@ def main():
                             distance = round(distance, 2)
 
                             print ("Distance" , distance)
-            
+        print ("Final distance is" , distance)                    
     finally:
         GPIO.cleanup()
 
