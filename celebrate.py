@@ -4,7 +4,7 @@ import rospy, time
 from geometry_msgs.msg import Twist
 length = 0.5
 
-#当投进了，或者已经跑到主人这里了, 
+#When shot is made or reawches the owner
 def celebrate():
     pub = rospy.Publisher('car/cmd_vel', Twist, queue_size=10)
     rospy.init_node('publisher')
