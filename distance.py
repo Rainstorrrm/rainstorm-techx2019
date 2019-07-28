@@ -11,7 +11,7 @@ import time
 trig_output_pin = 13  
 echo_input_pin = 18  
 
-def main():
+def distance_to_spitball():
     # Pin Setup:
     # Board pin-numbering scheme
     GPIO.setmode(GPIO.BOARD)
@@ -49,4 +49,4 @@ def main():
 
 
 if __name__ == '__main__':
-    main()
+    distance_to_spitball()
