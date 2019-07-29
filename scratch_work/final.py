@@ -115,7 +115,7 @@ while True:
         break
 
 if not args.get("video", False):
-    vs. stop()
+    vs.stop()
 
 else:
     vs.release()
