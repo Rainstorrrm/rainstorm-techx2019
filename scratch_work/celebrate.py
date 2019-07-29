@@ -2,7 +2,7 @@
 
 import rospy, time
 from geometry_msgs.msg import Twist
-length = 0.5
+length = 0.25
 
 #When shot is made or reawches the owner
 def celebrate():
@@ -11,6 +11,7 @@ def celebrate():
     
     while not rospy.is_shutdown():
         msg = Twist()
+        msg.linear.x = 1500
         msg.angular.z = 66
         pub.publish(msg)
         time.sleep(length)
