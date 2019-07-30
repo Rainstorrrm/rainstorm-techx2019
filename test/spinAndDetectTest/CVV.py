@@ -95,23 +95,9 @@ class cv_detection:
 
 
     def dis_to_center(self, obj):
-        ap = argparse.ArgumentParser()
-        ap.add_argument("-v", "--video",
-            help = "path to the (optional) video file")
-        ap.add_argument("-b", "--buffer", type = int, default = 64,
-            help = "max buffer size")
-        args = vars(ap.parse_args())
-
-        pts = deque(maxlen = args["buffer"])
-        if not args.get("video", False):
-            vs = VideoStream(src = 0).start()
-        else:
-            vs = cv2.VideoCapture(args["video"])
-
-        frame = vs.read()
-        frame = frame[1] if  args.get("video", False) else frame
-
-        frame = imutils.resize(frame, width =600)
+        cap = cv2.VideoCapture(0)
+        ret, frame = cap.read()
+ 
         blurred = cv2.GaussianBlur(frame, (11,11), 0)
         hsv = cv2.cvtColor(blurred, cv2.COLOR_BGR2HSV)
 
