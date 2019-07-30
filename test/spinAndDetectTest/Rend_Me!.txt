@@ -1,0 +1,8 @@
+# 
+!!!!!!IMPORTANT!!!!!!
+
+Put all these files under the same folder,
+
+Run spin&detection_test.py to test the rotate and cv detection function. If everything so smoothly, the robot should start to rotate until it spot the paperball(red)
+
+Run movetowards_test.py to test whether the robot can move towards the target with adjustment to its angle.
