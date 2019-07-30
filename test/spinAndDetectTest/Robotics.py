@@ -1,7 +1,6 @@
 import rospy, time
 from geometry_msgs.msg import Twist
 from CVV import cv_detection
-from ultra import Ultra
 
 forward_speed = 1600
 backward_speed = 1440
@@ -93,7 +92,7 @@ class Robot_move:
         pub.publish(msg)
 
     # func to congrats the owner if the throw hits
-    def congrats():
+    # def congrats():
         # put congrats moves here
         # can include:[amrs movement, sound]
         
