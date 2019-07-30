@@ -9,7 +9,7 @@
 # class cv_detection:
 
 #     def __init__(self):
-    
+
 
 #     def detect_obj(self, obj):
 #         # return True or False
@@ -30,7 +30,7 @@ class cv_detection:
     def __init__(self):
         self.vs = VideoStream(src= 0 ).start()
         time.sleep(3.0)
-    
+
     def get_mask(self,object,hsv):
         lower_red1 = (0,50,0)
         upper_red1 = (3, 255,255)
@@ -61,7 +61,7 @@ class cv_detection:
 
     def detect_object(self, obj):
         cap = cv2.VideoCapture(0)
-        ret, frame = cap.read（）
+        ret, frame = cap.read()
  
         blurred = cv2.GaussianBlur(frame, (11,11), 0)
         hsv = cv2.cvtColor(blurred, cv2.COLOR_BGR2HSV)
@@ -101,7 +101,7 @@ class cv_detection:
         ap.add_argument("-b", "--buffer", type = int, default = 64,
             help = "max buffer size")
         args = vars(ap.parse_args())
-        
+
         pts = deque(maxlen = args["buffer"])
         if not args.get("video", False):
             vs = VideoStream(src = 0).start()
